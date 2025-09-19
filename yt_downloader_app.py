@@ -420,7 +420,7 @@ if __name__ == '__main__':
         """Check if a port is available"""
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             try:
-                s.bind(('localhost', port))
+                s.bind(('0.0.0.0', port))
                 return True
             except socket.error:
                 return False
@@ -454,7 +454,8 @@ if __name__ == '__main__':
     print(f"📺 YouTube Downloader: http://localhost:{PORT}")
     print(f"📘 Facebook Downloader: http://localhost:{PORT}/facebook")
     print(f"📱 Instagram Downloader: http://localhost:{PORT}/instagram")
-    print(f"🌐 Network Access: http://192.168.29.26:{PORT}")
+    print(f"🌐 Network Access: http://0.0.0.0:{PORT}")
+    print(f"🌍 External Access: http://<your-ip-address>:{PORT}")
     print("Press Ctrl+C to stop the server")
     
     try:

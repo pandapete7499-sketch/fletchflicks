@@ -9,7 +9,7 @@ def is_port_available(port):
     """Check if a port is available"""
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         try:
-            s.bind(('localhost', port))
+            s.bind(('0.0.0.0', port))
             return True
         except socket.error:
             return False
@@ -25,26 +25,35 @@ def check_node_installed():
 def start_main_server():
     """Start the main Flask server (YouTube, Facebook, Instagram)"""
     print("� Starting Video Downloader Pro (Main Server)...")
-    
-    # Check if virtual environment exists
-    venv_python = Path(".venv/Scripts/python.exe")
-    if venv_python.exists():
-        python_executable = str(venv_python)
-        print("✅ Using virtual environment")
+
+    # Check if virtual environment exists (Linux/Ubuntu paths)
+    venv_paths = [
+        Path(".venv/bin/python"),  # Linux/Ubuntu
+        Path("venv/bin/python"),   # Alternative Linux
+        Path(".venv/Scripts/python.exe"),  # Windows
+        Path("venv/Scripts/python.exe")    # Alternative Windows
+    ]
+
+    python_executable = sys.executable
+    for venv_path in venv_paths:
+        if venv_path.exists():
+            python_executable = str(venv_path)
+            print("✅ Using virtual environment")
+            break
     else:
-        python_executable = sys.executable
         print("⚠️  Using system Python (virtual environment not found)")
-    
+
     try:
         main_server = subprocess.Popen([
             python_executable, 'yt_downloader_app.py'
         ], cwd=os.path.dirname(os.path.abspath(__file__)))
-        
+
         print("✅ Main server started successfully!")
         print("📺 YouTube downloader: http://localhost:5000")
         print("📘 Facebook downloader: http://localhost:5000/facebook")
         print("📱 Instagram downloader: http://localhost:5000/instagram")
-        
+        print("🌐 Network access: http://0.0.0.0:5000")
+
         return main_server
     except Exception as e:
         print(f"❌ Error starting main server: {e}")
@@ -69,13 +78,21 @@ def start_nextjs_server():
     print("🌐 Starting Next.js Instagram Reel downloader...")
     
     try:
-        node_server = subprocess.Popen([
-            'cmd', '/c', 'npm', 'run', 'dev'
-        ], cwd=nextjs_path, shell=True)
-        
+        # Use platform-appropriate command
+        import platform
+        if platform.system() == "Windows":
+            node_server = subprocess.Popen([
+                'cmd', '/c', 'npm', 'run', 'dev'
+            ], cwd=nextjs_path, shell=True)
+        else:
+            # Linux/Ubuntu
+            node_server = subprocess.Popen([
+                'npm', 'run', 'dev'
+            ], cwd=nextjs_path)
+
         print("✅ Next.js server started!")
         print("🔗 Advanced Instagram downloader: http://localhost:3000")
-        
+
         return node_server
     except Exception as e:
         print(f"⚠️  Could not start Next.js server: {e}")
@@ -120,7 +137,7 @@ def main():
         print("  🌟 Advanced Instagram: http://localhost:3000")
     
     print()
-    print("🌐 Network Access: http://192.168.29.26:5000")
+    print("🌐 Network Access: http://0.0.0.0:5000")
     print()
     print("💡 All video downloading features are available in the main app!")
     print("⏹️  Press Ctrl+C to stop all servers")

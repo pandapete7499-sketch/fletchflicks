@@ -1,35 +1,86 @@
-# YouTube Video Downloader Pro
+# FetchFlicks Video Downloader Pro
 
-A professional, futuristic web application for downloading YouTube videos with enhanced features and a sleek black & white theme.
+🎬 A comprehensive, professional video downloader supporting YouTube, Facebook, and Instagram with a sleek interface and cross-platform compatibility.
 
 ## Features
 
+### 📺 YouTube Downloader
 - Download any YouTube video by providing its URL
-- Select from available video resolutions
+- Select from available video resolutions (144p to 4K)
+- Audio-only download option (MP3)
+- Video preview functionality
+- Detailed video information (title, author, views, duration)
+
+### 📘 Facebook Video Downloader
+- Download Facebook videos in HD quality
+- Support for public Facebook video posts
+- Automatic video detection and processing
+
+### 📱 Instagram Downloader
+- Download Instagram reels and video posts
+- Support for public Instagram content
+- High-quality video downloads
+
+### 🎨 User Interface
 - Professional, futuristic black and white theme
 - Responsive design that works on mobile and desktop
-- Video preview functionality
-- Copy video link to clipboard
-- Detailed video information (title, author, views, duration)
-- Multiple resolution options for video download
-- Audio-only download option
 - Interactive UI with visual feedback
 - Center-aligned design for better visual balance
 - Enhanced error handling and user feedback
 
+### 🌐 Cross-Platform Support
+- **Windows**: Native support with .bat and .ps1 scripts
+- **Ubuntu/Linux**: Native support with .sh scripts
+- **Network Access**: Access from any device on your network
+
 ## Requirements
 
-- Python 3.6+
+### System Requirements
+- **Python 3.6+**
+- **Node.js** (optional, for Next.js Instagram component)
+- **ffmpeg** (for video processing)
+
+### Python Dependencies
 - Flask
 - pytubefix
+- instaloader
+- requests
 - gunicorn (for deployment)
 
-## Installation
+## Quick Start
 
-1. Install the required dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
+### 🪟 Windows
+```bash
+# Run the setup
+start_server.bat
+# Or
+start_server.ps1
+# Or
+python start_servers.py
+```
+
+### 🐧 Ubuntu/Linux
+```bash
+# One-time setup
+./setup_ubuntu.sh
+
+# Start the application
+./start_server.sh
+# Or
+python3 start_servers.py
+```
+
+### 📦 Manual Installation
+```bash
+# Create virtual environment
+python -m venv .venv
+source .venv/bin/activate  # Linux/Mac
+# or
+.venv\Scripts\activate     # Windows
+
+# Install dependencies
+pip install -r requirements.txt
+```
 
 ## Recommended Media Player
 
