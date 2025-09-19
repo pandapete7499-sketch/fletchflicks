@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback | Video Downloader Pro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">
+                <span class="logo-icon">▶</span>
+                <span class="logo-text">Video Downloader Pro</span>
+            </a>
+            <nav class="nav-links">
+                <a href="{{ url_for('index') }}" class="nav-link">YouTube</a>
+                <a href="{{ url_for('facebook_page') }}" class="nav-link">Facebook</a>
+                <a href="{{ url_for('instagram_page') }}" class="nav-link">Instagram</a>
+                <a href="{{ url_for('about') }}" class="nav-link">About</a>
+                <a href="{{ url_for('help') }}" class="nav-link">Help</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="card">
+                <h1 class="card-title">💬 Feedback</h1>
+                <p class="card-description">Help us improve Video Downloader Pro with your valuable feedback</p>
+                
+                <div class="feedback-content">
+                    <div class="feedback-hero">
+                        <h2>💝 Tell Us What You Think!</h2>
+                        <p>Your feedback helps us make the video downloader better for everyone!</p>
+                    </div>
+
+                    <div class="feedback-actions">
+                        <div class="action-card">
+                            <div class="action-icon">📧</div>
+                            <h3>Send Email</h3>
+                            <p>Quick and easy way to reach us</p>
+                            <button onclick="sendQuickFeedback()" class="action-btn primary">Send Feedback</button>
+                        </div>
+                        
+                        <div class="action-card">
+                            <div class="action-icon">📋</div>
+                            <h3>Copy Email</h3>
+                            <p>Copy our email to send manually</p>
+                            <button onclick="copyEmail()" class="action-btn secondary">Copy Email</button>
+                        </div>
+                        
+                        <div class="action-card">
+                            <div class="action-icon">🔗</div>
+                            <h3>GitHub</h3>
+                            <p>For technical discussions</p>
+                            <a href="https://github.com/Rushabh9033" target="_blank" class="action-btn github">Visit Profile</a>
+                        </div>
+                    </div>
+
+                    <section class="feedback-section">
+                        <h2 class="section-title">� What Kind of Feedback?</h2>
+                        <div class="guidelines-grid">
+                            <div class="guideline-card">
+                                <h3>🐛 Found a Problem?</h3>
+                                <p>Tell us about bugs or things that don't work:</p>
+                                <div class="guideline-tags">
+                                    <span class="tag">What website you used</span>
+                                    <span class="tag">What browser you use</span>
+                                    <span class="tag">What went wrong</span>
+                                    <span class="tag">What you expected to happen</span>
+                                </div>
+                            </div>
+                            
+                            <div class="guideline-card">
+                                <h3>💡 Have an Idea?</h3>
+                                <p>Share ideas for new features:</p>
+                                <div class="guideline-tags">
+                                    <span class="tag">What you want</span>
+                                    <span class="tag">Why it would be helpful</span>
+                                    <span class="tag">How often you'd use it</span>
+                                    <span class="tag">Any other details</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="feedback-section">
+                        <h2 class="section-title">📞 How to Reach Us</h2>
+                        <div class="contact-methods">
+                            <div class="method-card">
+                                <h3>📧 Email (Best Option)</h3>
+                                <p class="email-address">rushabhmavani01@gmail.com</p>
+                                <p>Perfect for: Any feedback, bug reports, feature ideas, or just saying hi!</p>
+                                <p><strong>We usually reply within:</strong> 1-2 days</p>
+                            </div>
+                            
+                            <div class="method-card">
+                                <h3>🔗 GitHub</h3>
+                                <p><a href="https://github.com/Rushabh9033" target="_blank">@Rushabh9033</a></p>
+                                <p>Good for: Technical discussions and following updates</p>
+                                <p><strong>Coming Soon:</strong> A dedicated place for bug reports and feature requests!</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="feedback-section">
+                        <h2 class="section-title">🎯 Common Feedback Topics</h2>
+                        <div class="feedback-item">
+                            <p>Here are some things other users often ask about:</p>
+                            <ul class="feedback-list">
+                                <li>🎥 <strong>New Platforms:</strong> "Can you add TikTok/Twitter support?"</li>
+                                <li>📱 <strong>Mobile Experience:</strong> "Can you make it work better on phones?"</li>
+                                <li>⚡ <strong>Speed:</strong> "Can downloads be faster?"</li>
+                                <li>🎨 <strong>Design:</strong> "Can you change how it looks?"</li>
+                                <li>🔧 <strong>Features:</strong> "Can you add [specific feature]?"</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section class="feedback-section">
+                        <h2 class="section-title">🙏 Thank You!</h2>
+                        <div class="feedback-item">
+                            <p>Every piece of feedback helps us improve! Whether it's a bug report, feature idea, or just letting us know you like the service - we appreciate it all.</p>
+                            <p>We read every message and try to reply to everyone personally.</p>
+                        </div>
+                    </section>
+                </div>
+                
+                <a href="/" class="back-link">← Back to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Video Downloader Pro &copy; 2025 | Developed by Rushabh Mavani</p>
+            <div class="footer-links">
+                <a href="/credits">Credits</a>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/contact">Contact</a>
+                <a href="/feedback">Feedback</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+        function sendQuickFeedback() {
+            const subject = "Video Downloader Pro - Quick Feedback";
+            const body = `Hi Rushabh,
+
+I wanted to share my experience with Video Downloader Pro:
+
+[Please share your feedback here]
+
+Thanks!`;
+            
+            const emailUrl = `mailto:rushabhmavani01@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            try {
+                window.location.href = emailUrl;
+            } catch (error) {
+                // Fallback: Copy email to clipboard and show alert
+                copyEmail();
+            }
+        }
+        
+        function copyEmail() {
+            const email = 'rushabhmavani01@gmail.com';
+            
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(email).then(() => {
+                    alert('✅ Email address copied to clipboard: ' + email);
+                }).catch(() => {
+                    promptEmail(email);
+                });
+            } else {
+                promptEmail(email);
+            }
+        }
+        
+        function promptEmail(email) {
+            prompt('Please copy this email address:', email);
+        }
+    </script>
+</body>
+</html>

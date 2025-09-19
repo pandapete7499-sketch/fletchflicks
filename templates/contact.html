@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Video Downloader Pro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">
+                <span class="logo-icon">▶</span>
+                <span class="logo-text">Video Downloader Pro</span>
+            </a>
+            <nav class="nav-links">
+                <a href="{{ url_for('index') }}" class="nav-link">YouTube</a>
+                <a href="{{ url_for('facebook_page') }}" class="nav-link">Facebook</a>
+                <a href="{{ url_for('instagram_page') }}" class="nav-link">Instagram</a>
+                <a href="{{ url_for('about') }}" class="nav-link">About</a>
+                <a href="{{ url_for('help') }}" class="nav-link">Help</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="card">
+                <h1 class="card-title">📞 Contact Us</h1>
+                <p class="card-description">Get in touch with our development team</p>
+                
+                <div class="contact-content">
+                    <div class="contact-hero">
+                        <h2>🤝 Need Help?</h2>
+                        <p>We're here to help! Here's how you can reach us:</p>
+                    </div>
+
+                    <div class="contact-methods">
+                        <div class="contact-card primary">
+                            <div class="contact-icon">👨‍💻</div>
+                            <h3>Main Contact</h3>
+                            <p>Best way to reach the developer</p>
+                            <a href="https://github.com/Rushabh9033" target="_blank" class="contact-btn">Visit @Rushabh9033</a>
+                        </div>
+                        
+                        <div class="contact-card secondary">
+                            <div class="contact-icon">📂</div>
+                            <h3>Report Issues</h3>
+                            <p>Found a bug? Want a new feature?</p>
+                            <div class="coming-soon-badge">🚀 Coming Soon!</div>
+                        </div>
+                    </div>
+
+                    <section class="contact-section">
+                        <h2 class="section-title">🐛 Found a Problem?</h2>
+                        <div class="issue-reporting">
+                            <div class="report-info">
+                                <h3>How to Report Issues</h3>
+                                <p>Right now, the best way is to contact us on GitHub. Soon we'll have a better system!</p>
+                                <ol class="report-steps">
+                                    <li>Go to <a href="https://github.com/Rushabh9033" target="_blank">@Rushabh9033's GitHub</a></li>
+                                    <li>Send a message about the problem</li>
+                                    <li>We'll get back to you as soon as possible</li>
+                                </ol>
+                            </div>
+                            
+                            <div class="bug-checklist">
+                                <h3>📋 What to Tell Us</h3>
+                                <p>Help us fix the problem faster by telling us:</p>
+                                <div class="checklist-grid">
+                                    <div class="checklist-item">
+                                        <span class="check-icon">📱</span>
+                                        <span>Which website (YouTube, Facebook, Instagram)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <span class="check-icon">🌐</span>
+                                        <span>Your browser (Chrome, Firefox, Safari)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <span class="check-icon">💻</span>
+                                        <span>Your device (Windows, Mac, Phone)</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <span class="check-icon">❌</span>
+                                        <span>What error message you saw</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <span class="check-icon">📝</span>
+                                        <span>What you were trying to do</span>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <span class="check-icon">�</span>
+                                        <span>The video link (if it's safe to share)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="contact-section">
+                        <h2 class="section-title">💡 Want a New Feature?</h2>
+                        <div class="contact-item">
+                            <p>Have an idea to make our video downloader better? We'd love to hear it!</p>
+                            <p>Ideas we're always interested in:</p>
+                            <ul>
+                                <li>🎯 New websites to support (like TikTok, Twitter)</li>
+                                <li>⚙️ Better video quality options</li>
+                                <li>🎨 Improvements to make it easier to use</li>
+                                <li>⚡ Making downloads faster</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section class="contact-section">
+                        <h2 class="section-title">⏰ Response Times</h2>
+                        <div class="contact-item">
+                            <p>We try our best to respond quickly:</p>
+                            <ul>
+                                <li>🚨 <strong>Urgent Problems:</strong> 1-2 days</li>
+                                <li>🐛 <strong>Regular Issues:</strong> 3-7 days</li>
+                                <li>💡 <strong>New Feature Ideas:</strong> 1-2 weeks</li>
+                            </ul>
+                            <p><em>Note: We do this in our free time, so sometimes it might take a bit longer!</em></p>
+                        </div>
+                    </section>
+
+                    <section class="contact-section">
+                        <h2 class="section-title">💡 Feature Requests</h2>
+                        <div class="contact-item">
+                            <p>Have an idea for a new feature? We'd love to hear it!</p>
+                            <ul>
+                                <li>🎯 <strong>New Platform Support:</strong> Additional video platforms</li>
+                                <li>⚙️ <strong>Quality Options:</strong> More download quality choices</li>
+                                <li>🎨 <strong>UI Improvements:</strong> Better user interface</li>
+                                <li>⚡ <strong>Performance:</strong> Speed and efficiency enhancements</li>
+                                <li>🔧 <strong>Tools:</strong> Additional utility features</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section class="contact-section">
+                        <h2 class="section-title">🤝 Contributing</h2>
+                        <div class="contact-item">
+                            <h3>How to Contribute</h3>
+                            <ol>
+                                <li><strong>Fork</strong> the repository on GitHub</li>
+                                <li><strong>Clone</strong> your fork locally</li>
+                                <li><strong>Create</strong> a new branch for your feature</li>
+                                <li><strong>Make</strong> your changes</li>
+                                <li><strong>Test</strong> thoroughly</li>
+                                <li><strong>Submit</strong> a pull request</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <h3>Areas Where You Can Help</h3>
+                            <ul>
+                                <li>🐛 <strong>Bug Fixes:</strong> Fix existing issues</li>
+                                <li>🌟 <strong>New Features:</strong> Add new functionality</li>
+                                <li>📚 <strong>Documentation:</strong> Improve guides and docs</li>
+                                <li>🧪 <strong>Testing:</strong> Test the app on different platforms</li>
+                                <li>🌍 <strong>Translation:</strong> Add support for other languages</li>
+                                <li>🎨 <strong>Design:</strong> Improve UI/UX</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section class="contact-section">
+                        <h2 class="section-title">📋 Support Guidelines</h2>
+                        <div class="contact-item">
+                            <h3>Before Contacting Us</h3>
+                            <ul>
+                                <li>✅ Check our <a href="{{ url_for('help') }}">Help & FAQ</a> page</li>
+                                <li>✅ Search existing GitHub issues</li>
+                                <li>✅ Try refreshing the page or clearing browser cache</li>
+                                <li>✅ Ensure you're using a supported video URL format</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <h3>Response Times</h3>
+                            <ul>
+                                <li>🐛 <strong>Critical Bugs:</strong> 1-2 days</li>
+                                <li>⚙️ <strong>General Issues:</strong> 3-7 days</li>
+                                <li>💡 <strong>Feature Requests:</strong> 1-2 weeks</li>
+                                <li>📝 <strong>Documentation:</strong> 1 week</li>
+                            </ul>
+                            <p><em>Note: Response times may vary based on complexity and current workload.</em></p>
+                        </div>
+                    </section>
+
+                    <section class="contact-section">
+                        <h2 class="section-title">⚖️ Legal Inquiries</h2>
+                        <div class="contact-item">
+                            <p>For legal matters, copyright concerns, or DMCA requests, please use the GitHub contact methods with "LEGAL" in the subject line.</p>
+                            <p>We take intellectual property rights seriously and will respond promptly to valid legal concerns.</p>
+                        </div>
+                    </section>
+
+                    <section class="contact-section">
+                        <h2 class="section-title">🌟 Community</h2>
+                        <div class="contact-item">
+                            <p>Join our community of users and developers:</p>
+                            <ul>
+                                <li>⭐ <strong>Star</strong> the project on GitHub if you find it useful</li>
+                                <li>👥 <strong>Follow</strong> @JohnDev19 for updates</li>
+                                <li>🔔 <strong>Watch</strong> the repository for notifications</li>
+                                <li>🗨️ <strong>Participate</strong> in discussions</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Video Downloader Pro &copy; 2025 | Developed by Rushabh Mavani</p>
+            <div class="footer-links">
+                <a href="/credits">Credits</a>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/contact">Contact</a>
+                <a href="/feedback">Feedback</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
