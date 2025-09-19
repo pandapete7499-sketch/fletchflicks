@@ -61,7 +61,24 @@ fi
 # Install/upgrade requirements
 echo -e "${BLUE}📦 Installing/updating dependencies...${NC}"
 pip install --upgrade pip
-pip install -r requirements.txt
+
+# Install requirements with error handling
+if pip install -r requirements.txt; then
+    echo -e "${GREEN}✅ Python dependencies installed successfully${NC}"
+else
+    echo -e "${RED}❌ Failed to install Python dependencies${NC}"
+    echo "Trying to install individual packages..."
+
+    # Try installing packages individually
+    pip install flask==2.3.3
+    pip install "pytubefix>=6.0.0"
+    pip install gunicorn==21.2.0
+    pip install instaloader==4.12
+    pip install requests==2.31.0
+    pip install tqdm==4.66.1
+
+    echo -e "${YELLOW}⚠️  Some packages may have failed to install${NC}"
+fi
 
 # Check if ffmpeg is installed (needed for video merging)
 if ! command_exists ffmpeg; then

@@ -1,9 +1,23 @@
-# ...existing code...
-from instaloader import Instaloader
-# ...existing code...
 from flask import Flask, render_template, request, redirect, url_for, flash, send_file, Response, stream_with_context
-from pytubefix import YouTube
-from facebook_video_downloader import FacebookVideoDownloader
+
+# Import with error handling
+try:
+    from pytubefix import YouTube
+    YOUTUBE_AVAILABLE = True
+except ImportError as e:
+    print(f"⚠️  Warning: pytubefix not available: {e}")
+    print("📥 Install with: pip install pytubefix")
+    YOUTUBE_AVAILABLE = False
+    YouTube = None
+
+try:
+    from facebook_video_downloader import FacebookVideoDownloader
+    FACEBOOK_AVAILABLE = True
+except ImportError as e:
+    print(f"⚠️  Warning: facebook_video_downloader not available: {e}")
+    FACEBOOK_AVAILABLE = False
+    FacebookVideoDownloader = None
+
 from config import Config
 import os
 import io
@@ -49,12 +63,16 @@ def index():
 
 @app.route('/fetch', methods=['POST'])
 def fetch_video():
+    if not YOUTUBE_AVAILABLE:
+        flash('YouTube downloader is not available. Please install pytubefix: pip install pytubefix')
+        return redirect(url_for('index'))
+
     link = request.form.get('link')
-    
+
     if not link:
         flash('Please enter a YouTube video link')
         return redirect(url_for('index'))
-    
+
     try:
         youtube_video = YouTube(link)
         video_title = youtube_video.title
@@ -104,13 +122,17 @@ def fetch_video():
 
 @app.route('/download', methods=['POST'])
 def download_video():
+    if not YOUTUBE_AVAILABLE:
+        flash('YouTube downloader is not available. Please install pytubefix: pip install pytubefix')
+        return redirect(url_for('index'))
+
     link = request.form.get('link')
     itag = request.form.get('itag')
-    
+
     if not link or not itag:
         flash('Invalid request')
         return redirect(url_for('index'))
-    
+
     try:
         # Create YouTube object with progress callback
         youtube_video = YouTube(link, on_progress_callback=on_progress)
@@ -177,12 +199,16 @@ def facebook_page():
 @app.route('/facebook/download', methods=['POST'])
 def download_facebook_video():
     """Download Facebook video"""
+    if not FACEBOOK_AVAILABLE:
+        flash('Facebook downloader is not available. Please check your installation.')
+        return redirect(url_for('facebook_page'))
+
     facebook_url = request.form.get('facebook_url')
-    
+
     if not facebook_url:
         flash('Please enter a Facebook video URL')
         return redirect(url_for('facebook_page'))
-    
+
     try:
         # Initialize Facebook downloader
         downloader = FacebookVideoDownloader(FACEBOOK_API_URL)

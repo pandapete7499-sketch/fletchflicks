@@ -78,6 +78,23 @@ def start_nextjs_server():
     print("🌐 Starting Next.js Instagram Reel downloader...")
     
     try:
+        # Check if package.json exists
+        package_json = nextjs_path / "package.json"
+        if not package_json.exists():
+            print("⚠️  package.json not found in Next.js directory")
+            return None
+
+        # Install dependencies first if node_modules doesn't exist
+        node_modules = nextjs_path / "node_modules"
+        if not node_modules.exists():
+            print("📦 Installing Next.js dependencies...")
+            try:
+                subprocess.run(['npm', 'install'], cwd=nextjs_path, check=True)
+                print("✅ Next.js dependencies installed")
+            except subprocess.CalledProcessError as e:
+                print(f"❌ Failed to install Next.js dependencies: {e}")
+                return None
+
         # Use platform-appropriate command
         import platform
         if platform.system() == "Windows":
@@ -85,10 +102,19 @@ def start_nextjs_server():
                 'cmd', '/c', 'npm', 'run', 'dev'
             ], cwd=nextjs_path, shell=True)
         else:
-            # Linux/Ubuntu
-            node_server = subprocess.Popen([
-                'npm', 'run', 'dev'
-            ], cwd=nextjs_path)
+            # Linux/Ubuntu - check if next is available
+            try:
+                # Try to run next directly first
+                subprocess.run(['npx', 'next', '--version'],
+                             cwd=nextjs_path, check=True, capture_output=True)
+                node_server = subprocess.Popen([
+                    'npx', 'next', 'dev'
+                ], cwd=nextjs_path)
+            except (subprocess.CalledProcessError, FileNotFoundError):
+                # Fallback to npm run dev
+                node_server = subprocess.Popen([
+                    'npm', 'run', 'dev'
+                ], cwd=nextjs_path)
 
         print("✅ Next.js server started!")
         print("🔗 Advanced Instagram downloader: http://localhost:3000")
@@ -96,6 +122,7 @@ def start_nextjs_server():
         return node_server
     except Exception as e:
         print(f"⚠️  Could not start Next.js server: {e}")
+        print("💡 This is optional - the main app will still work without it")
         return None
 
 def main():

@@ -45,10 +45,30 @@ sudo apt install python3-venv -y
 # Install Node.js and npm (for Next.js Instagram downloader)
 if ! command_exists node; then
     echo -e "${YELLOW}📥 Installing Node.js and npm...${NC}"
-    curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-    sudo apt install nodejs -y
+    # Try multiple installation methods
+    if command_exists curl; then
+        curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+        sudo apt install nodejs -y
+    else
+        # Fallback to Ubuntu repository
+        sudo apt install nodejs npm -y
+    fi
+
+    # Verify installation
+    if command_exists node; then
+        echo -e "${GREEN}✅ Node.js installed: $(node --version)${NC}"
+    else
+        echo -e "${RED}❌ Node.js installation failed${NC}"
+        echo -e "${YELLOW}⚠️  Next.js component will not be available${NC}"
+    fi
 else
     echo -e "${GREEN}✅ Node.js already installed: $(node --version)${NC}"
+fi
+
+# Install npm if not present
+if ! command_exists npm; then
+    echo -e "${YELLOW}📥 Installing npm...${NC}"
+    sudo apt install npm -y
 fi
 
 # Install ffmpeg (required for video processing)
